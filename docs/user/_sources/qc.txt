@@ -1,0 +1,74 @@
+			  QUALITY CONTROL PAGES
+			  ~~~~~~~~~~~~~~~~~~~~~
+
+INTRODUCTION AND BACKGROUND:
+— - - - - - - - - - - - - - 
+Magnetic Resonance Imaging has become a more widely used clinical tool in everyday practice for both research and clinical applications which makes it increasingly important to engage in quality control and quality assurance measures. C-PAC provides researchers and analysts the necessary tools for performing a complete Quality Control analysis through it’s Quality Control (QC) configuration. 
+
+
+COMPUTATION AND ANALYSIS:
+— - - - - - - - - - - - 
+The QC pages provide multiple  parameters for assessing the quality of results of evaluation:
+SNR values: Signal to Noise ratio 
+Movement plots:
+	Movement transition plots
+	Head Displacement plots
+ 	Frame wise displacement plot
+Histogram plots:
+	Signal to noise ratio
+	Seed based correlation analysis
+	Network Centrality 
+	Temporal Dual Regression 
+	Regional Homogeneity (reho)
+	Amplitude low-frequency fluctuations (alff)
+	Fractional Amplitude low frequency fluctuations (f-alff)
+Analysis and Visualization: 
+	Visual result of skull strip
+	Grey Matter, White matter & CSF
+	MNI Edge overlapped on Mean functional Image
+	T1 Edge overlapped on Mean functional Image
+	MNI Edge overlapped on Normalized anatomical 
+	seed based correlation analysis 
+	Temporal dual regression 
+	Voxel-Mirrored Homotopic connectivity
+	Network Centrality
+
+The analysis and visualization is presented as a montage taken using two planes: Axial and Sagittal.
+
+.. figure:: /_images/csf_gm_wm_a.png 
+
+Montage of Cerebrospinal Spinal Fluid, Grey Matter, White Matter: axial representation 
+.. figure:: /_images/alff_to_standard_hist_plot.png
+
+ALFF to standard intensity plot 
+
+
+.. figure:: /_images/csf_gm_wm_s.png
+Montage of Cerebrospinal Fluid, Grey Matter, White Matter : Sagittal Representation
+
+.. figure:: /_images/FD_plot.png	
+Montage of FD plot with Mean 
+
+
+APPLICATION AND RECOMMENDATION:
+- - - - - - - - - - - - - - - 
+The QC pages are generated to display the parameters (referred above) for each subject run in a workflow. It is not a batch job and does not average the results for multiple subjects within a pipeline, instead it generates the results per subject in a workflow. 
+
+It is always recommended to switch “on” [1] the Quality Control toggle as it is an efficient method to asses the quality of your image processing. 
+Configuring C-PAC to generate Quality Control Images:
+
+This can be easily performed using the GUI or manually changing the pipeline configuration (.yml) file. In the GUI, the Quality Control Images option is part of the “output settings” tab, and can be turned “On” or “Off”. 
+If changing manually, you can add the following line on your pipeline configuration file:
+	generateQualityControlImages: [1]
+
+.. figure:: /_images/Quality_control_GUI.png 
+Example GUI showing the switch for QC pages
+
+.. figure:: /_images/Quality_control_pipConf.png
+Example Pipeline configuration file showing the switch for QC pages
+
+The results of your run will be stored in the output folder. C-PAC also provides a convenient HTML file with the qc folder (in the output directory) which provides a web interface for viewing the images. There is an index page that provides short links to the all the quality images generated. 
+
+
+.. figure:: /_images/qc_index.png
+Example index page generated with all the results of processing 
