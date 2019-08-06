@@ -1,4 +1,4 @@
-fcp-indi_mx_edit.github.com
+fcp-indi.github.com
 ===================
 
 Github Pages Repo for FCP-INDI
